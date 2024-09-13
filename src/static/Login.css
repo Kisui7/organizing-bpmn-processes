@@ -1,11 +1,3 @@
-body{
-  margin: 0; /*tirando a margem do site*/
-}
-
-body * { 
-  box-sizing: border-box;
-}
-
 form {
   margin: 0;
   width: 100%;
@@ -17,7 +9,7 @@ form a{
   width: 100%;
 }
 
-.main-login{
+.entry{
   width: 100vw;/*width=largura e 100vw=100% da tela*/
   height: 100vh;/*height=altura*/
   display: flex; /*faz com que as coisas fiquem lado a lado*/
@@ -25,7 +17,7 @@ form a{
   align-items: center; /*centraliza as coisas no eixo Y*/
 }
 
-.left-login{
+.left-container{
   margin-left: 100px;
   width: 50vw;
   height: 100vh;
@@ -35,7 +27,7 @@ form a{
   flex-direction: column; 
 }
 
-.left-login > h1{
+.left-container > h1{
   font-size: 3vw;
   color: #322A25
 }
@@ -45,7 +37,7 @@ form a{
   margin-left: 8vw;
 }
 
-.right-login{
+.right-container{
   width: 50vw; /*50%*/
   height: 100vh; /*100%*/
   display: flex;
@@ -53,7 +45,7 @@ form a{
   align-items: center;
 }
 
-.card-login{
+.card-container{
   width: 60%;/*60% da div*/
   display: flex;
   justify-content: center;
@@ -65,7 +57,7 @@ form a{
   box-shadow: 0px 10px 40px #00000056; /*sombra do card*/
 }
 
-.card-login > h1 {
+.card-container > h1 {
   color: #d4d4d4;
   margin:0;
 }
@@ -101,15 +93,22 @@ form a{
   color: #f0ffff94;
 }
 
-.button-login{
+.button-right-container{
   width: 100%;
   margin: 15px 0px;
+  padding: 15px;
   border: none;
   border-radius: 8px;
   outline: none;
   letter-spacing: 3px; 
   color: #fffffff3;
   background: #443227;
+  cursor: pointer;
+}
+
+.viewStatus{
+  all: unset;
+  color: white;
   cursor: pointer;
 }
 

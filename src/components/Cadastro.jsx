@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "../static/Cadastro.css";
-import { FaLock, FaUser } from "react-icons/fa";
 import axios from "axios";
 
 export default function Cadastro() {
@@ -38,7 +37,6 @@ export default function Cadastro() {
                 onChange={(e) => setName(e.target.value)}
                 required
               />
-              <FaUser className="icon" />
             </div>
             <div className="input-field">
               <input
@@ -48,7 +46,6 @@ export default function Cadastro() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
-              <FaLock className="icon" />
             </div>
             <div className="terms">
               <input type="checkbox" required />
