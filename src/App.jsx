@@ -13,7 +13,7 @@ const router = createBrowserRouter([
   {
     element: (
       <>
-        <Header />
+        {/*<Header />*/ }    {/*ativar só quando estiver logado*/ }
         <main>
           <Outlet />
         </main>

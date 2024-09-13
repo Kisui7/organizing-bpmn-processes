@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
-import { FaLock, FaUser } from "react-icons/fa";
 import "../static/Login.css";
+import cat from '../assets/copy.svg'
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const [name, setName] = useState("");
@@ -29,43 +30,41 @@ export default function Login() {
 
   return (
     <>
-      <div className="login">
-        <div className="container">
-          <form onSubmit={handleSubmit}>
-            <h1>Entre no SouthStar</h1>
-            <div className="input-field">
-              <input
-                type="text"
-                placeholder="Nome"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-              <FaUser className="icon" />
-            </div>
-            <div className="input-field">
-              <input
-                type="password"
-                placeholder="Senha"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <FaLock className="icon" />
-            </div>
-            <div className="recall-forget">
-              <label>
-                <input type="checkbox" />
-                Lembre de mim
-              </label>
-              <a href="/forgot-password">Esqueceu a senha?</a>
-            </div>
-            <button type="submit">Entrar</button>
-            <div className="signup-link">
-              <p>
-                Não tem uma conta? <a href="/register">Registrar</a>
-              </p>
-            </div>
+      <div className="main-login">
+        <div className="left-login"> 
+          <h1>ProcessSync</h1>
+          <h2>O ProcessSync ajuda você a padronizar e <br />organizar os processos BPMN da sua empresa. </h2>
+          <img src={cat} alt="" className="animated"/>
+        </div>
+        <div className="right-login">
+          <div className="card-login">
+            <h1>Entrar</h1>
+            <form onSubmit={handleSubmit}>
+              <div className="textfield">
+                <label htmlFor="usuario">Usuário</label>
+                <input
+                  type="text"
+                  name="usuario"
+                  placeholder="Usuário"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </div>
+              <div className="textfield">
+                <label htmlFor="senha">Senha</label>
+                <input
+                  type="password"
+                  name="senha"
+                  placeholder="Senha"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
+              <button type="submit" className="button-login">ENTRAR</button>
+              <Link to="/forgot-password">Esqueceu a senha?</Link>
+            </form>
             {message && <p>{message}</p>}
-          </form>
+          </div>
         </div>
       </div>
     </>
