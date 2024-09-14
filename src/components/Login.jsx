@@ -1,13 +1,14 @@
 // Login.js
 import axios from "axios";
 import { useState } from "react";
-import "../static/Login.css";
 import copy from '../assets/copy.svg';
+import { useNavigate } from "react-router-dom";
 
 export default function Login({ setView }) {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -16,7 +17,14 @@ export default function Login({ setView }) {
         "https://backend-southstar.onrender.com/login",
         { name, password }
       );
-      setMessage(response.data.message);
+
+      if(response.status === 200) {
+        localStorage.setItem("authToken", response.data.token);
+        setMessage(response.data.message);
+        navigate('/repositorio-de-processos');
+      } else {
+        setMessage(response.data.message);
+      }
     } catch (error) {
       setMessage(
         "Erro ao fazer login: " +
