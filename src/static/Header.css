@@ -9,6 +9,7 @@ header {
   align-items: center;
   padding: 10px;
   width: 80px;
+  background-color: #E8E5E0;
 }
 
 header h1 {
@@ -18,11 +19,13 @@ header h1 {
   margin: 0px 0px 100px;
 }
 
-.links-nav a {
+.links-nav button {
+  all: unset;
   font-family: "Montserrat", sans-serif;
   margin: 10px 0px 80px;
   text-decoration: none;
   color: rgb(0, 0, 0);
   display: flex;
+  cursor: pointer;
   transform: rotate(-90deg); /* Rotaciona o texto em 90 graus */
 }

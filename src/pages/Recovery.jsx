@@ -1,21 +1,22 @@
 import axios from "axios";
 import copy from '../assets/copy.svg';
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Recovery({ setView }) { // Recebe setView como prop
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = async (event) => {
+  const handleSubmitRecovery = async (event) => {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "https://backend-southstar.onrender.com/forgot-password",
+        "https://49d8-2804-14d-788b-20da-796a-b823-77d7-3b5c.ngrok-free.app/forgot-password",
         {
           name,
         }
       );
-      setMessage(`Senha: ${response.data.password}`);
+      setMessage(`Senha: ${response.data.message}`);
     } catch (error) {
       setMessage(
         "Erro ao recuperar senha: " +
@@ -34,7 +35,7 @@ export default function Recovery({ setView }) { // Recebe setView como prop
       <div className="right-container">
         <div className="card-container">
           <h1>Recuperar Senha</h1>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmitRecovery}>
             <div className="textfield">
               <label htmlFor="name">Nome:</label>
               <input
@@ -49,7 +50,7 @@ export default function Recovery({ setView }) { // Recebe setView como prop
             </div>
             <button type="submit" className="button-right-container">PESQUISAR</button>
             {message && <p className="message">{message}</p>}
-            <button type="button" onClick={() => setView("login")} className="viewStatus">Senha recuperada? Faça Login</button>
+            <Link to='/'>Senha recuperada? Faça Login</Link>
           </form>
         </div>
       </div>
