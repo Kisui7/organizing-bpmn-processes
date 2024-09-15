@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "../static/Cadastro.css";
 import axios from "axios";
 
 export default function Cadastro() {

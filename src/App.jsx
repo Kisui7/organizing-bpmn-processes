@@ -1,8 +1,8 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-import Header from './components/Header';
 import Repository from "./pages/Repository";
+import Recovery from "./pages/Recovery";
 import PrivateRoute from "./routes/PrivateRoute";
 import Home from './pages/Home';
 import './App.css';
@@ -12,8 +12,6 @@ const router = createBrowserRouter([
   {
     element: (
       <>
-        {/* Mostrar Header apenas se o usuário estiver logado */}
-        {/* <Header />   */}
         <main>
           <Outlet />
         </main>
@@ -26,11 +24,16 @@ const router = createBrowserRouter([
       },
       {
         path: '/repositorio-de-processos',
-        element: 
+        element: (
           <PrivateRoute>
             <Repository />
           </PrivateRoute>
-      }
+        )
+      },
+      {
+        path: '/recover-password',
+        element: <Recovery />
+      },
     ]
   }
 ]);

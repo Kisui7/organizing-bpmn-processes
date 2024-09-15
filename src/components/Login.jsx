@@ -1,8 +1,8 @@
 // Login.js
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import copy from '../assets/copy.svg';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Login({ setView }) {
   const [name, setName] = useState("");
@@ -10,15 +10,24 @@ export default function Login({ setView }) {
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
+  // Verifica se o usuário já está logado
+  useEffect(() => {
+    const authToken = localStorage.getItem('authToken');
+    if (authToken) {
+      // Se o usuário já estiver logado, redireciona para outra página
+      navigate('/repositorio-de-processos');
+    }
+  }, [navigate]);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "https://backend-southstar.onrender.com/login",
+        "https://49d8-2804-14d-788b-20da-796a-b823-77d7-3b5c.ngrok-free.app/login",
         { name, password }
       );
 
-      if(response.status === 200) {
+      if (response.status === 200) {
         localStorage.setItem("authToken", response.data.token);
         setMessage(response.data.message);
         navigate('/repositorio-de-processos');
@@ -65,7 +74,7 @@ export default function Login({ setView }) {
               />
             </div>
             <button type="submit" className="button-right-container">ENTRAR</button>
-            <button onClick={() => setView("recovey")} className="viewStatus">Esqueceu a senha?</button>
+            <Link to='/recover-password'>Esqueceu a senha?</Link>
           </form>
           {message && <p>{message}</p>}
         </div>
