@@ -29,28 +29,26 @@ export default function Repository() {
     const authToken = localStorage.getItem("authToken");
 
     try {
-        const response = await fetch('https://backend-southstar.onrender.com/processos', {
-            headers: {
-                'Authorization': `Bearer ${authToken}`,
-                'Content-Type': 'application/json'
-            }
-        });
-
-        if (!response.ok) {
-            throw new Error(`Erro na requisição: ${response.status}`);
+      const response = await fetch('https://backend-southstar.onrender.com/processos', {
+        headers: {
+          'Authorization': `Bearer ${authToken}`,
+          'Content-Type': 'application/json'
         }
+      });
 
-        const data = await response.json();
-        setProcessos(data);
-        setError(null); // Limpa mensagens de erro anteriores
-        setLoading(false);
+      if (!response.ok) {
+        throw new Error(`Erro na requisição: ${response.status}`);
+      }
+
+      const data = await response.json();
+      setProcessos(data);
+      setError(null);
+      setLoading(false);
     } catch (error) {
-        console.error("Erro ao buscar processos:", error.message);
-        setError("Erro ao buscar processos");
-        setLoading(false);
+      console.error("Erro ao buscar processos:", error.message);
+      setError("Erro ao buscar processos");
+      setLoading(false);
     }
-
-
   };
 
   const handleSearch = async () => {
@@ -60,7 +58,7 @@ export default function Repository() {
     setProcessos([]);
 
     try {
-      const response = await fetch(`https://backend-southstar.onrender.com/buscar-processos/${searchTerm}`, {
+      const response = await fetch(`https://backend-southstar.onrender.com/processos/${searchTerm}`, {
         headers: {
           'Authorization': `Bearer ${authToken}`,
           'Content-Type': 'application/json'
@@ -82,14 +80,12 @@ export default function Repository() {
     }
   };
 
-
-
   const buttonsList = [{ nome: "Sair", handleClick: handleLogout }];
 
   return (
     <>
-      <header className="header">
-        <div className="logo">
+      <header>
+        <div className="repository-logo">
           <h1>ProcessSync</h1>
         </div>
         {buttonsList.map((button) => (
@@ -97,37 +93,40 @@ export default function Repository() {
         ))}
       </header>
 
-      <div className="search-box">
+      <div className="repository-search-box">
         <input 
           type="text" 
-          className="search-txt" 
+          className="repository-search-txt" 
           placeholder="Buscar" 
           value={searchTerm}
           onChange={(event) => setSearchTerm(event.target.value)}
-          />
-        <button className="search-button" aria-label="Buscar" onClick={handleSearch}>
+        />
+        <button className="repository-search-button" aria-label="Buscar" onClick={handleSearch}>
           <FontAwesomeIcon icon={faSearch} />
         </button>
       </div>
 
-      <h1>Repositório de Processos</h1>
+      <h1 className="repository-page-title">Repositório de Processos</h1>
       <div className="repository-button">
-        <button onClick={handleGetProcessos} className="todos-os-processos">
+        <button onClick={handleGetProcessos} className="repository-todos-os-processos">
           Todos os Processos
         </button>
       </div>
       
-      <div className="processos-list">
+      <div className="repository-processos-list">
         {loading && <p>Carregando...</p>}
-        {error && <p className="error-message">{error}</p>}
+        {error && <p className="repository-error-message">{error}</p>}
         {processos.length > 0 ? (
-          <ul>
+          <div className="repository-processos-cards">
             {processos.map((processo) => (
-              <li key={processo.id}>
-                {processo.nome} - {processo.numero} - {processo.descricao}
-              </li>
+              <div className="repository-processo-card" key={processo.id}>
+                <h2>{processo.nome}</h2>
+                <p><strong>Número:</strong> {processo.numero}</p>
+                <p><strong>Descrição:</strong> {processo.descricao}</p>
+                <p><strong>Data:</strong> {processo.data}</p>
+              </div>
             ))}
-          </ul>
+          </div>
         ) : (
           !loading
         )}

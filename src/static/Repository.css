@@ -1,59 +1,121 @@
-.search-functions{
-  padding: 10px;
+.repository-search-box {
+  position: relative;
+  margin: 50px auto;
+  max-width: 600px;
+  background: #0f0f0f;
+  height: 55px;
+  border-radius: 55px;
+  padding: 12.5px;
+  display: flex;
+  align-items: center;
+  transition: 0.3s ease-in-out; 
 }
 
-.search-box{
-    position: absolute;
-    margin: 50px 120px;
-    background: #0f0f0f;;
-    height: 55px;
-    border-radius: 55px;
-    padding: 12.5px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .search-button{
-    color: #E8E5E0;
-    float: right;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: #0f0f0f;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.4s;
-  }
-  
-  .search-box:hover > .search-txt {
-    width: 300px;
-    padding: 0 7.5px;
-  }
-  
-  .search-box:hover > .search-button {
-    background: #E8E5E0;
-    color: #000000;
-  }
-  
-  .search-txt{
-    border: none;
-    background: none;
-    outline:none;
-    float: left;
-    padding: 0;
-    color: #f1f1f1;
-    font-size: 20px;
-    transition: 0.4s;
-    line-height: 50px;
-    width: 0;
-  }
+.repository-search-button {
+  color: #E8E5E0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #0f0f0f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.4s ease-in-out; 
+  border: none;
+  cursor: pointer;
+}
+
+.repository-search-box:hover .repository-search-txt {
+  width: 550px;
+  padding: 0 7.5px;
+}
+
+.repository-search-box:hover .repository-search-button {
+  background: #E8E5E0;
+  color: #000000;
+}
+
+.repository-search-txt {
+  border: none;
+  background: none;
+  outline: none;
+  padding: 0;
+  color: #f1f1f1;
+  font-size: 20px;
+  transition: 0.4s ease-in-out;
+  line-height: 50px;
+  width: 0;
+}
 
 
-  .repository-button button{
-    margin: 20px 200px;
-  }
+.repository-button {
+  text-align: center;
+  margin: 20px 0;
+}
 
-  .processos-list{
-    margin-left: 200px;
-  }
+.repository-todos-os-processos {
+  background: #322a25; 
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out; 
+}
+
+.repository-todos-os-processos:hover {
+  background: #6f3c12; 
+}
+
+
+.repository-processos-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.repository-error-message {
+  color: red;
+}
+
+
+.repository-processos-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.repository-processo-card {
+  background-color: #f5f5f5; 
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  width: 250px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: 0.3s ease-in-out; 
+}
+
+.repository-processo-card:hover {
+  background-color: #e0e0e0; 
+  transform: scale(1.05); 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
+}
+
+.repository-processo-card h2 {
+  margin-top: 0;
+  color: #322a25; 
+}
+
+.repository-processo-card p {
+  margin: 5px 0;
+}
+
+
+.repository-page-title {
+  text-align: center;
+  margin: 40px 0;  
+  font-size: 2.5rem; 
+  color: #322a25; 
+  font-weight: bold; 
+}
