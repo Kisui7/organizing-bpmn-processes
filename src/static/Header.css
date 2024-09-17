@@ -5,26 +5,26 @@ header {
   position: fixed;
   height: 100%;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  width: 80px;
-  background-color: #E8E5E0;
+  color:#E8E5E0;
+  width: 70px;
+  background-color: #0f0f0f;
 }
 
 header h1 {
   font-family: "Montserrat", sans-serif;
-  color:rgb(0, 0, 0);
+  color:rgb(175, 175, 175);
   transform: rotate(-90deg);
-  margin: 0px 0px 100px;
+  margin-top: 130px;
+  font-size: 20px;
 }
 
 .links-nav button {
   all: unset;
   font-family: "Montserrat", sans-serif;
-  margin: 10px 0px 80px;
+  margin-bottom: 70px;
   text-decoration: none;
-  color: rgb(0, 0, 0);
   display: flex;
   cursor: pointer;
   transform: rotate(-90deg); /* Rotaciona o texto em 90 graus */

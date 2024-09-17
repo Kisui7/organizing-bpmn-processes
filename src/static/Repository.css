@@ -1,7 +1,11 @@
+.search-functions{
+  padding: 10px;
+}
+
 .search-box{
     position: absolute;
-    margin: 50px 200px;
-    background: #1C252E;
+    margin: 50px 120px;
+    background: #0f0f0f;;
     height: 55px;
     border-radius: 55px;
     padding: 12.5px;
@@ -15,7 +19,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: #1C252E;
+    background: #0f0f0f;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -28,7 +32,8 @@
   }
   
   .search-box:hover > .search-button {
-    background: #443227;
+    background: #E8E5E0;
+    color: #000000;
   }
   
   .search-txt{
@@ -42,4 +47,13 @@
     transition: 0.4s;
     line-height: 50px;
     width: 0;
+  }
+
+
+  .repository-button button{
+    margin: 20px 200px;
+  }
+
+  .processos-list{
+    margin-left: 200px;
   }
